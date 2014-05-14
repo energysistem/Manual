@@ -7,8 +7,8 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/manual" />
+            <option value="C:\WorkSpace_AndroidStudio\Manual" />
+            <option value="C:\WorkSpace_AndroidStudio\Manual\manual" />
           </set>
         </option>
       </GradleProjectSettings>

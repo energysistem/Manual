@@ -12,9 +12,16 @@ import android.view.ViewGroup;
 import android.os.Build;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.widget.Toast;
+
+import java.io.IOException;
+import java.util.Locale;
 
 public class MainActivity extends Activity {
 
+    private enum Idioma {
+        ES, EN, FR, PT;
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +31,40 @@ public class MainActivity extends Activity {
         // Enable JavaScript
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
-        webView.loadUrl("http://www.energysistem.com/guide/39930");
+        try {
+            Idioma idioma = Idioma.valueOf(Locale.getDefault().getCountry());
+            Toast.makeText(this, idioma.toString(), Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this,Locale.getDefault().getCountry(), Toast.LENGTH_SHORT).show();
+
+            switch (idioma) {
+                case ES:
+                    webView.loadUrl("http://www.energysistem.com/guide/39530");
+                    break;
+                case EN:
+                    webView.loadUrl("http://www.energysistem.com/en/guide/39530");
+                    break;
+                case PT:
+                    webView.loadUrl("http://www.energysistem.com/pt/guide/39530");
+                    break;
+                case FR:
+                    webView.loadUrl("http://www.energysistem.com/fr/guide/39530");
+                    break;
+
+                default:
+                    webView.loadUrl("http://www.energysistem.com/en/guide/39530");
+                    break;
+
+
+            }
+        }
+        catch (Exception error)
+        {
+            webView.clearCache(true);
+            webView.loadUrl("http://www.energysistem.com/en/guide/39530");
+        }
+
+
+
 
     }
 
