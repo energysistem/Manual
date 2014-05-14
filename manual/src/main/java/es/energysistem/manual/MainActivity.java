@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
+import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.Toast;
@@ -31,6 +32,7 @@ public class MainActivity extends Activity {
         // Enable JavaScript
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
+        webView.setWebChromeClient(new WebChromeClient());
         try {
             Idioma idioma = Idioma.valueOf(Locale.getDefault().getCountry());
             Toast.makeText(this, idioma.toString(), Toast.LENGTH_SHORT).show();
@@ -53,8 +55,6 @@ public class MainActivity extends Activity {
                 default:
                     webView.loadUrl("http://www.energysistem.com/en/guide/39530");
                     break;
-
-
             }
         }
         catch (Exception error)
