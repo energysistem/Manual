@@ -3,6 +3,7 @@
 
     <string name="app_name">Manual</string>
     <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
-
+    <string name="action_settings">Ajustes</string>
+    <string name="AlertTitle">Conexión</string>
+    <string name="textAlert">Pas de connexion à Internet</string>
 </resources>
